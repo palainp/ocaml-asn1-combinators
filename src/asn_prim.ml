@@ -161,7 +161,7 @@ module Octets : Prim_s with type t = Cstruct.t = struct
 
   let of_cstruct { Cstruct.buffer; off; len } =
     (* XXX Mumbo jumbo to retain cs equality. *)
-    Cstruct.of_bigarray @@ Bigarray.Array1.sub buffer off len
+    Cstruct.of_bytes @@ Bytes.sub buffer off len
 
   let to_writer = Writer.of_cstruct
 
